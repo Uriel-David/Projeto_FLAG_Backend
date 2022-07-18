@@ -1,4 +1,10 @@
 {
+    "name": "uriel/kanbanflow",
+    "autoload": {
+        "psr-4": {
+            "src\\": "KanbanFlow/"
+        }
+    },
     "require": {
         "vlucas/phpdotenv": "^5.4",
         "twbs/bootstrap": "^5.1"

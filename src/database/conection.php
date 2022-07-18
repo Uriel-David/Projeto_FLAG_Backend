@@ -1,26 +1,32 @@
 <?php
+require '../scripts/global.php';
 
-namespace Database\ConectionMySQL;
-
-class ConnectionMySQL {
+class Connection
+{
   private $db;
-  private $user;
-  private $password;
+  private $host;
+  private $dbName;
+  private $dbUser;
+  private $dbPass;
   private $connection;
 
-  public function __construct($db = 'mysql:host=localhost;dbname=kanban_app', $user = 'root', $password = '')
+  public function __construct()
   {
-    $this->db = $db;
-    $this->user = $user;
-    $this->password = $password;
+    $this->db     = $_ENV['DB'];
+    $this->host   = $_ENV['DB_HOST'];
+    $this->dbName = $_ENV['DB_NAME'];
+    $this->dbUser = $_ENV['DB_USER'];
+    $this->dbPass = $_ENV['DB_PASS'];
   }
 
   public function connect()
   {
-    $this->connection = new PDO($this->db, $this->user, $this->password);
-    
-    if ($this->connection->connect_error) {
-      die("Failed connect with database: " . $this->connection->connect_error);
+    try {
+      $this->connection = new PDO($this->db . ':host=' . $this->host . ';dbname=' . $this->dbName, $this->dbUser, $this->dbPass);
+      $this->connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+      $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $error) {
+      echo 'ERROR: ' . $error->getMessage();
     }
 
     return $this->connection;

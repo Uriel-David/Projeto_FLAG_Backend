@@ -1,19 +1,39 @@
+<?php require '../scripts/global.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In</title>
-  <link href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="./views/css/app.css" rel="stylesheet" />
+  <title><?= $_ENV['APP_NAME'] ?> - Sign up</title>
+  <link href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body>
-  <?php @include('./views/templates/header.php'); ?>
+  <header class="container text-center mt-5">
+    <?php @include('./templates/header.php'); ?>
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="../index.php">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="register in plataform" href="#">Register</a>
+      </li>
+    </ul>
+  </header>
 
-  <main class="container mt-5">
+  <main class="container">
     <form method="post" action="../controllers/register.php">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+        <div id="nameHelp" class="form-text">Your name profile in plataform.</div>
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+        <div id="usernameHelp" class="form-text">Your username in plataform.</div>
+      </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
@@ -27,10 +47,10 @@
     </form>
   </main>
 
-  <?php @include('./views/templates/footer.php'); ?>
+  <?php @include('./templates/footer.php'); ?>
 
-  <script src="../vendor/components/jquery/jquery.min.js"></script>
-  <script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../../vendor/components/jquery/jquery.min.js"></script>
+  <script src="../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
