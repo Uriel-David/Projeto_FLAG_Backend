@@ -11,7 +11,7 @@
 
 <body>
   <header class="container text-center mt-5">
-    <?php @include('./templates/header.php'); ?>
+    <?php @include('./templates/headerLogin.php'); ?>
     <ul class="nav nav-tabs justify-content-center">
       <li class="nav-item">
         <a class="nav-link" href="../index.php">Login</a>
@@ -23,25 +23,25 @@
   </header>
 
   <main class="container">
-    <form method="post" action="../controllers/register.php">
+    <form method="post" action="../scripts/register.php">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
-        <input type="text" class="form-control" id="name" aria-describedby="nameHelp">
+        <input type="text" class="form-control" name="name" aria-describedby="nameHelp">
         <div id="nameHelp" class="form-text">Your name profile in plataform.</div>
       </div>
       <div class="mb-3">
         <label for="username" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+        <input type="text" class="form-control" name="username" aria-describedby="usernameHelp">
         <div id="usernameHelp" class="form-text">Your username in plataform.</div>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text">Email for login in plataform.</div>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password:</label>
-        <input type="password" class="form-control" id="password">
+        <input type="password" class="form-control" name="password">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

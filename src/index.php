@@ -1,4 +1,7 @@
-<?php require './scripts/global.php' ?>
+<?php
+require_once './scripts/global.php';
+require_once './scripts/verifyLogin.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +14,7 @@
 
 <body>
   <header class="container text-center mt-5">
-    <?php @include('./views/templates/header.php'); ?>
+    <?php @include('./views/templates/headerLogin.php'); ?>
     <ul class="nav nav-tabs justify-content-center">
       <li class="nav-item">
         <a class="nav-link active" aria-current="login in plataform" href="#">Login</a>

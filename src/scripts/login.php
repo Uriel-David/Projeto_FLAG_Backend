@@ -1,33 +1,31 @@
 <?php
-ini_set('error_reporting', E_ALL);
+ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
-require './global.php';
-require '../database/conection.php';
+require_once __DIR__ . '/global.php';
+require_once __DIR__ . '/validations.php';
+require_once __DIR__ . '/../database/conection.php';
 
-session_start();
+$validateFormLogin = new ValidationForm;
+if ($validateFormLogin->validateFormLogin($_POST)) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
-$email = $_POST['email'];
-$password = $_POST['password'];
-$hash = password_hash($password, PASSWORD_DEFAULT);
-
-if (isset($_SESSION['email']) == $email) {
   $database   = new Connection();
   $connection = $database->connect();
 
   $stmt = $connection->prepare('SELECT * FROM users WHERE email = :email');
-  $stmt->execute(array('email' => $email));
+  $stmt->execute(['email' => $email]);
 
   for ($i = 0; $i < count($row = $stmt->fetchAll()); $i++) {
-    print_r($row[$i]['password']);
+    if (password_verify($password, $row[$i]['password'])) {
+      session_start();
+      $_SESSION['email'] = $email;
+      $_SESSION['password'] = $password;
+      header("Location: ../views/kanban.php");
+      exit;
+    }
   }
-}
 
-$database   = new Connection();
-$connection = $database->connect();
-
-$stmt = $connection->prepare('SELECT * FROM users WHERE email = :email');
-$stmt->execute(array('email' => $email));
-
-for ($i = 0; $i < count($row = $stmt->fetchAll()); $i++) {
-  print_r($row[$i]['password']);
+  header("Location: ../index.php?login=error");
+  exit;
 }
