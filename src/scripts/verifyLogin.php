@@ -14,7 +14,7 @@ if (!empty($email)) {
 
   for ($i = 0; $i < count($row = $stmt->fetchAll()); $i++) {
     if (password_verify($password, $row[$i]['password'])) {
-      header("Location: ../views/kanban.php");
+      header("Location: ../src/views/kanban.php");
       exit;
     }
   }

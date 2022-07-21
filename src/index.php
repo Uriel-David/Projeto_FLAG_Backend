@@ -1,6 +1,7 @@
 <?php
 require_once './scripts/global.php';
 require_once './scripts/verifyLogin.php';
+print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">

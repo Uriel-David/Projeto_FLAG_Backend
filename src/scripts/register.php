@@ -20,7 +20,6 @@ if ($validateFormRegister->validateFormRegister($_POST)) {
   $stmt->execute(['username' => $username, 'email' => $email, 'password' => $password, 'name' => $name]);
 
   if ($stmt) {
-    session_start();
     $_SESSION['email'] = $email;
     $_SESSION['password'] = $password;
     header("Location: ../views/kanban.php");
