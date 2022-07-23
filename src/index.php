@@ -1,7 +1,6 @@
 <?php
-require_once './scripts/global.php';
-require_once './scripts/verifyLogin.php';
-print_r($_SESSION);
+require './services/global.php';
+require './services/verifyLogin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +26,7 @@ print_r($_SESSION);
   </header>
 
   <main class="container">
-    <form method="post" action="./scripts/login.php">
+    <form method="post" action="./services/login.php">
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" name="email" aria-describedby="emailHelp">

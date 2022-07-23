@@ -1,4 +1,4 @@
-<?php require '../scripts/global.php' ?>
+<?php require '../services/global.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +23,7 @@
   </header>
 
   <main class="container">
-    <form method="post" action="../scripts/register.php">
+    <form method="post" action="../services/register.php">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" class="form-control" name="name" aria-describedby="nameHelp">

@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../scripts/global.php';
+require __DIR__ . '/../services/global.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ require __DIR__ . '/../scripts/global.php';
 </head>
 
 <body>
-
+  <a href="../services/logout.php"></a>
 </body>
 
 </html>

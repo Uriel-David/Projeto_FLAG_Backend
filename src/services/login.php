@@ -19,7 +19,7 @@ if ($validateFormLogin->validateFormLogin($_POST)) {
   for ($i = 0; $i < count($row = $stmt->fetchAll()); $i++) {
     if (password_verify($password, $row[$i]['password'])) {
       $_SESSION['email'] = $email;
-      $_SESSION['password'] = password_hash($password, PASSWORD_DEFAULT);
+      $_SESSION['stateLogin'] = 'logged';
       header("Location: ../views/kanban.php");
       exit;
     }

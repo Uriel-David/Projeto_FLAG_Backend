@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/global.php';
 
-if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+if (session_status() !== PHP_SESSION_ACTIVE) {
   unset($_SESSION['email']);
   unset($_SESSION['password']);
   session_destroy();

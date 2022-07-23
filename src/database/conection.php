@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../scripts/global.php';
+require __DIR__ . '/../services/global.php';
 
 class Connection
 {
