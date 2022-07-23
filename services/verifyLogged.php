@@ -14,7 +14,7 @@ if (!empty($email)) {
 
   for ($i = 0; $i < count($row = $stmt->fetchAll()); $i++) {
     if ($email == $row[$i]['email']) {
-      header("Location: ../src/views/kanban.php");
+      header("Location: /../views/kanban.php");
       exit;
     }
   }

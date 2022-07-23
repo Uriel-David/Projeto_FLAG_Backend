@@ -1,11 +1,21 @@
 <?php
 require __DIR__ . '/global.php';
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
-  unset($_SESSION['email']);
-  unset($_SESSION['password']);
-  session_destroy();
-
-  header('Location: ../index.php');
-  exit;
+class Logout
+{
+  public function __construct()
+  {
+  }
+  
+  public function logoutUser()
+  {
+    if (session_status() === PHP_SESSION_ACTIVE) {
+      unset($_SESSION['email']);
+      unset($_SESSION['stateLogin']);
+      session_destroy();
+    
+      header('Location: /../');
+      exit;
+    }    
+  }
 }

@@ -28,7 +28,7 @@ class ValidationForm
 
   private function validateName($fieldName)
   {
-    $fieldName = filter_var($fieldName, FILTER_SANITIZE_STRING);
+    $fieldName = trim($fieldName);
 
     if (strlen($fieldName) < 3) {
       return false;
@@ -58,7 +58,7 @@ class ValidationForm
 
   private function validateUsername($fieldUsername)
   {
-    $fieldUsername = filter_var($fieldUsername, FILTER_SANITIZE_STRING);
+    $fieldUsername = trim($fieldUsername);
 
     if (strlen($fieldUsername) < 3) {
       return false;

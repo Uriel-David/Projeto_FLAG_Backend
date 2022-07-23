@@ -1,6 +1,6 @@
 <?php
 require './services/global.php';
-require './services/verifyLogin.php';
+require './services/verifyLogged.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +20,13 @@ require './services/verifyLogin.php';
         <a class="nav-link active" aria-current="login in plataform" href="#">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./views/register.php">Register</a>
+        <a class="nav-link" href="./views/register.php/">Register</a>
       </li>
     </ul>
   </header>
 
   <main class="container">
-    <form method="post" action="./services/login.php">
+    <form method="post" action="./controllers/Users.php/login">
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" name="email" aria-describedby="emailHelp">

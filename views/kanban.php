@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../services/global.php';
+require_once __DIR__ . '/../services/global.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ require __DIR__ . '/../services/global.php';
 </head>
 
 <body>
-  <a href="../services/logout.php"></a>
+  <a href="/../controllers/Users.php/logout">Logout</a>
 </body>
 
 </html>

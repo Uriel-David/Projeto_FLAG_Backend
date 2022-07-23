@@ -34,6 +34,6 @@ class Connection
 
   public function closeConnection()
   {
-    $this->connection->close();
+    $this->connection = null;
   }
 }

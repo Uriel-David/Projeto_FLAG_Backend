@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/global.php';
+require_once __DIR__ . '/../services/global.php';
 require_once __DIR__ . '/../database/conection.php';
 require_once __DIR__ . '/../services/register.php';
 
@@ -7,7 +7,7 @@ class UserModel
 {
     private $registerService;
     
-    private function __construct($user)
+    public function __construct($user)
     {
         $this->registerService = new Register($user);
     }
@@ -24,13 +24,7 @@ class UserModel
 
     public function createUser()
     {   
-        if ($this->registerService->registerUser()) {
-            header("Location: ../views/kanban.php");
-            exit;
-        }
-
-        header("Location: ../views/register.php?register=error");
-        exit;
+       return $this->registerService->registerUser();
     }
 
     public function editUser()

@@ -14,7 +14,7 @@
     <?php @include('./templates/headerLogin.php'); ?>
     <ul class="nav nav-tabs justify-content-center">
       <li class="nav-item">
-        <a class="nav-link" href="../index.php">Login</a>
+        <a class="nav-link" href="/../">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" aria-current="register in plataform" href="#">Register</a>
@@ -23,7 +23,7 @@
   </header>
 
   <main class="container">
-    <form method="post" action="../services/register.php">
+    <form method="post" action="/../controllers/Users.php/register">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" class="form-control" name="name" aria-describedby="nameHelp">

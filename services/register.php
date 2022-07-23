@@ -8,7 +8,7 @@ class Register {
   private $validateFormRegister;
   private $user;
 
-  private function __construct($user)
+  public function __construct($user)
   {
     $this->user                 = $user;
     $this->validateFormRegister = new ValidationForm(); 
