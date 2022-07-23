@@ -1,12 +1,15 @@
-<?php require_once '../services/global.php' ?>
+<?php
+require '../services/global.php';
+require '../services/verifyLogged.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $_ENV['APP_NAME'] ?> - Sign up</title>
-  <link href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <title><?= $_ENV['APP_NAME'] ?> - Sign in</title>
+  <link href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -16,17 +19,7 @@
   </header>
 
   <main class="container">
-    <form method="post" action="/../controllers/Users.php/register">
-      <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
-        <input type="text" class="form-control" name="name" aria-describedby="nameHelp">
-        <div id="nameHelp" class="form-text">Your name profile in plataform.</div>
-      </div>
-      <div class="mb-3">
-        <label for="username" class="form-label">Username:</label>
-        <input type="text" class="form-control" name="username" aria-describedby="usernameHelp">
-        <div id="usernameHelp" class="form-text">Your username in plataform.</div>
-      </div>
+    <form method="post" action="../controllers/Users.php/login">
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" name="email" aria-describedby="emailHelp">

@@ -13,31 +13,12 @@ require './services/verifyLogged.php';
 </head>
 
 <body>
-  <header class="container text-center mt-5">
-    <?php @include('./views/templates/headerLogin.php'); ?>
-    <ul class="nav nav-tabs justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="login in plataform" href="#">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./views/register.php/">Register</a>
-      </li>
-    </ul>
+  <header class="container-fluid mb-5">
+    <?php include('./views/templates/navbar.php') ?>
   </header>
 
   <main class="container">
-    <form method="post" action="./controllers/Users.php/login">
-      <div class="mb-3">
-        <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">Email for login in plataform.</div>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" class="form-control" name="password">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <p>Container Principal</p>
   </main>
 
   <?php @include('./views/templates/footer.php'); ?>
