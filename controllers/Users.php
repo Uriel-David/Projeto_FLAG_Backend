@@ -61,7 +61,7 @@ class UserController
     }
 }
 
-// Criar rotas
+// Criar rotas -> Provavelmente criar um diretório para gerenciar as rotas
 $route = explode("/", $_SERVER["REQUEST_URI"]);
 $userData = isset($_POST) ? $_POST : null;
 $userController = new UserController($userData);

@@ -13,12 +13,12 @@ require '../services/verifyLogged.php';
 </head>
 
 <body>
-  <header class="container text-center mb-5">
+  <header class="container-fluid text-center mb-5">
     <?php @include('./templates/navbar.php') ?>
     <?php @include('./templates/headerLogin.php'); ?>
   </header>
 
-  <main class="container">
+  <main class="container-fluid">
     <form method="post" action="../controllers/Users.php/login">
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
