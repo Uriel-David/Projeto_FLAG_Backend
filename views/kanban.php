@@ -12,7 +12,7 @@ require_once __DIR__ . '/../services/global.php';
 </head>
 
 <body>
-  <a href="/../controllers/Users.php/logout">Logout</a>
+  <a href="/../routes/web.php/logout">Logout</a>
 </body>
 
 </html>

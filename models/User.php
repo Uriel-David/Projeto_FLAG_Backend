@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../database/conection.php';
 require_once __DIR__ . '/../interfaces/User.php';
 require_once __DIR__ . '/../services/global.php';
-require_once __DIR__ . '/../services/register.php';
 require_once __DIR__ . '/../services/validations.php';
 
 class UserModel

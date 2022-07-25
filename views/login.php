@@ -18,8 +18,8 @@ require '../services/verifyLogged.php';
     <?php @include('./templates/headerLogin.php'); ?>
   </header>
 
-  <main class="container-fluid">
-    <form method="post" action="../controllers/Users.php/login">
+  <main class="container">
+    <form method="post" action="/../routes/web.php/login">
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" name="email" aria-describedby="emailHelp">

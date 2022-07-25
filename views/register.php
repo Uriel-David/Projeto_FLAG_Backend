@@ -15,8 +15,8 @@
     <?php @include('./templates/headerLogin.php'); ?>
   </header>
 
-  <main class="container-fluid">
-    <form method="post" action="/../controllers/Users.php/register">
+  <main class="container">
+    <form method="post" action="/../routes/web.php/register">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" class="form-control" name="name" aria-describedby="nameHelp">

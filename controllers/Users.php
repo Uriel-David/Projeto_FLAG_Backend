@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../services/global.php';
 require_once __DIR__ . '/../database/conection.php';
 require_once __DIR__ . '/../models/User.php';
+require_once __DIR__ . '/../services/global.php';
 require_once __DIR__ . '/../services/login.php';
 require_once __DIR__ . '/../services/logout.php';
 
@@ -11,9 +11,9 @@ class UserController
     private $userLogin;
     private $userLogout;
 
-    public function __construct($user)
+    public function __construct($user = null)
     {
-        if (!isset($user)) {
+        if (empty($user)) {
             $user = [];
         }
 
@@ -29,7 +29,7 @@ class UserController
     public function post()
     {
         if ($this->userModel->createUser()) {
-            header("Location: /../views/kanban.php");
+            header("Location: /../views/kanban.php/");
             exit;
         }
 
@@ -59,21 +59,4 @@ class UserController
     {
         $this->userLogout->logoutUser();
     }
-}
-
-// Criar rotas -> Provavelmente criar um diretório para gerenciar as rotas
-$route = explode("/", $_SERVER["REQUEST_URI"]);
-$userData = isset($_POST) ? $_POST : null;
-$userController = new UserController($userData);
-
-if ($route[3] == 'login' && !empty($userData)) {
-    $userController->login();
-}
-
-if ($route[3] == 'register' && !empty($userData)) {
-    $userController->post();
-}
-
-if ($route[3] == 'logout') {
-    $userController->logout();
 }
