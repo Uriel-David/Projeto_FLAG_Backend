@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/../database/conection.php';
-require_once __DIR__ . '/../models/User.php';
-require_once __DIR__ . '/../services/global.php';
-require_once __DIR__ . '/../services/login.php';
-require_once __DIR__ . '/../services/logout.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/database/conection.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/models/User.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/services/login.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/services/logout.php';
 
 class UserController
 {
@@ -24,17 +24,17 @@ class UserController
 
     public function get()
     {
+        $users = $this->userModel->getUsers();
+        include($_SERVER['DOCUMENT_ROOT'] . '/views/panelAdmin.php');
     }
 
     public function post()
     {
         if ($this->userModel->createUser()) {
-            header("Location: /../views/kanban.php/");
-            exit;
+            include($_SERVER['DOCUMENT_ROOT'] . '/views/kanban.php');
+        } else {
+            include($_SERVER['DOCUMENT_ROOT'] . '/views/register.php');
         }
-
-        header("Location: /../views/register.php/");
-        exit;
     }
 
     public function put()
@@ -48,15 +48,21 @@ class UserController
     public function login()
     {
         if ($this->userLogin->loginUser()) {
-            header("Location: /../views/kanban.php/");
-            exit;
+            $user = $this->userModel->getUser($_SESSION['userId']);
+            
+            if ($user['is_admin']) {
+                include($_SERVER['DOCUMENT_ROOT'] . '/views/panelAdmin.php');
+            } else {
+                include($_SERVER['DOCUMENT_ROOT'] . '/views/kanban.php');
+            }
+        } else {
+            include($_SERVER['DOCUMENT_ROOT'] . '/views/login.php');
         }
-        header("Location: /../");
-        exit;
     }
 
     public function logout()
     {
         $this->userLogout->logoutUser();
+        include($_SERVER['DOCUMENT_ROOT'] . '/index.php');
     }
 }

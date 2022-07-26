@@ -9,10 +9,10 @@ class User
 
     public function __construct($user)
     {
-        $this->name     = $user['name'];
-        $this->username = $user['username'];
-        $this->email    = $user['email'];
-        $this->password = $user['password'];
+        $this->name     = $user['name'] ?? null;
+        $this->username = $user['username'] ?? null;
+        $this->email    = $user['email'] ?? null;
+        $this->password = $user['password'] ?? null;
     }
 
     public function getName()

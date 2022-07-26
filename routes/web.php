@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../controllers/Users.php';
-require_once __DIR__ . '/../services/global.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/controllers/Users.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 
 $routes = explode("/", $_SERVER["REQUEST_URI"]);
 $route = $routes[3];

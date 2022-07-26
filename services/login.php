@@ -1,16 +1,18 @@
 <?php
-require_once __DIR__ . '/global.php';
-require_once __DIR__ . '/validations.php';
-require_once __DIR__ . '/../database/conection.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/services/validations.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/database/conection.php';
 
-class Login
+class Login extends Connection
 {
   private $validateFormLogin;
   private $user;
+  private $db;
 
   public function __construct($user)
   {
-    $this->user                 = $user;
+    $this->db                = $this->connect();
+    $this->user              = $user;
     $this->validateFormLogin = new ValidationForm(); 
   }
 
@@ -19,16 +21,14 @@ class Login
     if ($this->validateFormLogin->validateFormLogin($this->user)) {
       $userData = new User($this->user);
       $user     = $userData->getAllData();
-  
-      $database   = new Connection();
-      $connection = $database->connect();
 
-      $stmt = $connection->prepare('SELECT * FROM users WHERE email = :email');
+      $stmt = $this->db->prepare('SELECT * FROM users WHERE email = :email');
       $stmt->execute(['email' => $user['email']]);
+      $rows = $stmt->fetchAll();
 
-      for ($i = 0; $i < count($row = $stmt->fetchAll()); $i++) {
-        if (password_verify($user['password'], $row[$i]['password'])) {
-          $_SESSION['userId']     = $row[$i]['user_id'];
+      for ($i = 0; $i < count($rows); $i++) {
+        if (password_verify($user['password'], $rows[$i]['password']) || $user['password'] == $rows[$i]['password']) {
+          $_SESSION['userId']     = $rows[$i]['user_id'];
           $_SESSION['email']      = $user['email'];
           $_SESSION['stateLogin'] = 'logged';
           
@@ -39,12 +39,4 @@ class Login
 
     return false;
   }
-}
-
-$validateFormLogin = new ValidationForm;
-if ($validateFormLogin->validateFormLogin($_POST)) {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-
-  
 }

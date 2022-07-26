@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/global.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 
 class ValidationForm
 {

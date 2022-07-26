@@ -1,4 +1,4 @@
-<?php require_once '../services/global.php' ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +6,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $_ENV['APP_NAME'] ?> - Sign up</title>
-  <link href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/bootstrapCSS.php'); ?>
 </head>
 
 <body>
   <header class="container-fluid text-center mb-5">
-    <?php @include('./templates/navbar.php') ?>
-    <?php @include('./templates/headerLogin.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/navbar.php') ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/headerLogin.php'); ?>
   </header>
 
   <main class="container">
@@ -40,10 +40,9 @@
     </form>
   </main>
 
-  <?php @include('./templates/footer.php'); ?>
+  <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/footer.php'); ?>
 
-  <script src="../vendor/components/jquery/jquery.min.js"></script>
-  <script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/bootstrapJS.php'); ?>
 </body>
 
 </html>
