@@ -1,19 +1,17 @@
 <div class="row limit-size">
     <div class="col-md-6 offset-md-3">
-        <form method="POST" action="">
+        <form method="POST" action="/../routes/web.php/createBoard">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label for="title_board" class="form-label">Board - Title:</label>
+                <input type="text" class="form-control" name="title_board" id="title_board" required>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
+            <label for="category_board" class="form-label">Board - Category:</label>
+            <select class="form-select mb-3" name="category_board" aria-label="Board Category">
+                <option disabled>Categories</option>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="other">Other</option>
+            </select>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

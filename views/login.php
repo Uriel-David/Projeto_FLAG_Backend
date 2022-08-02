@@ -22,12 +22,12 @@ require $_SERVER['DOCUMENT_ROOT'] . '/services/verifyLogged.php';
     <form method="post" action="/../routes/web.php/login">
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
         <div id="emailHelp" class="form-text">Email for login in plataform.</div>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password:</label>
-        <input type="password" class="form-control" name="password">
+        <input type="password" class="form-control" name="password" min="8" required>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

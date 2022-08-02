@@ -30,10 +30,10 @@ class UserModel extends Connection
         return $users;
     }
 
-    public function getUser($id)
+    public function getUser()
     {
         $stmt = $this->db->prepare("SELECT * FROM users WHERE user_id = :user_id");
-        $stmt->execute(['user_id' => $id]);
+        $stmt->execute(['user_id' => $this->user['user_id']]);
         $user = $stmt->fetch();
 
         return $user;
@@ -61,18 +61,18 @@ class UserModel extends Connection
         return $this->db->lastInsertId();
     }
 
-    public function editUser($id)
+    public function editUser()
     {
         if ($this->validateForm->validateFormRegister($this->user)) {
             $userData   = new User($this->user);
             $user       = $userData->getAllData();
             $password   = password_hash($user['password'], PASSWORD_DEFAULT);
         
-            $stmt = $this->db->prepare("UPDATE users SET username = :username, email = :email, password = :password, name = :name WHERE user_id = :id");
-            $stmt->execute(['username' => $user['username'], 'email' => $user['email'], 'password' => $password, 'name' => $user['name'], 'user_id' => $id]);
+            $stmt = $this->db->prepare("UPDATE users SET username = :username, email = :email, password = :password, name = :name WHERE user_id = :user_id");
+            $stmt->execute(['username' => $user['username'], 'email' => $user['email'], 'password' => $password, 'name' => $user['name'], 'user_id' => $user['user_id']]);
         
             if ($stmt) {
-                $_SESSION['userId']     = $id;
+                $_SESSION['userId']     = $user['user_id'];
                 $_SESSION['email']      = $user['email'];
                 $_SESSION['stateLogin'] = 'logged';
             }
@@ -81,12 +81,12 @@ class UserModel extends Connection
         return $this->db->lastInsertId();
     }
 
-    public function deleteUser($id)
+    public function deleteUser()
     {
         $connection = $this->connect();
 
-        $stmt = $connection->prepare('DELETE FROM users WHERE user_id = :id');
-        $stmt->execute(['user_id' => $id]);
+        $stmt = $connection->prepare('DELETE FROM users WHERE user_id = :user_id');
+        $stmt->execute(['user_id' => $this->user['user_id']]);
         $user = $stmt->fetch();
         
         return $user;

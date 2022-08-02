@@ -6,6 +6,7 @@ class User
     private $username;
     private $email;
     private $password;
+    private $userId;
 
     public function __construct($user)
     {
@@ -13,6 +14,7 @@ class User
         $this->username = $user['username'] ?? null;
         $this->email    = $user['email'] ?? null;
         $this->password = $user['password'] ?? null;
+        $this->userId   = $user['user_id'] ?? null;
     }
 
     public function getName()
@@ -35,13 +37,19 @@ class User
         return $this->password;
     }
 
+    public function getId()
+    {
+        return $this->userId;
+    }
+
     public function getAllData()
     {
         $user = [
             'name'      => $this->name,
             'username'  => $this->username,
             'email'     => $this->email,
-            'password'  => $this->password
+            'password'  => $this->password,
+            'user_id'   => $this->userId,
         ];
 
         return $user;

@@ -5,7 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/login.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/logout.php';
 
-class UserController
+class UsersController
 {
     private $userModel;
     private $userLogin;
@@ -53,7 +53,7 @@ class UserController
             if ($user['is_admin']) {
                 include($_SERVER['DOCUMENT_ROOT'] . '/views/panelAdmin.php');
             } else {
-                include($_SERVER['DOCUMENT_ROOT'] . '/views/kanban.php');
+                header("Location: /routes/web.php/getBoards");
             }
         } else {
             include($_SERVER['DOCUMENT_ROOT'] . '/views/login.php');
