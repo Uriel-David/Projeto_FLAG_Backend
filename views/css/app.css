@@ -7,3 +7,23 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+#delete-board-submit {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#delete-board-form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#navbar-app {
+    border-radius: 8px;
+}
+
+#footer-app {
+    z-index: -1;
+    color: rgba(0, 0, 0, 0.6);
+}

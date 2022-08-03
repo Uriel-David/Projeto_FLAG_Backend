@@ -1,16 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="/">Kanban Flow</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
-        <a class="nav-link" href="#">About</a>
-        <a class="nav-link" href="/views/login.php">Login</a>
-        <a class="nav-link" href="/views/register.php">Register</a>
-        </div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbar-app">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/views/about.php">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/views/register.php">Register</a>
+            </li>
+        </ul>
     </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand" href="/">Kanban Flow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse">
+        <ul class="navbar-nav ms-auto">          
+            <li class="nav-item">
+                <?php if (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged') : ?>
+                    <a class="nav-link" href="/../routes/web.php/logout">Logout</a>
+                <?php endif; ?>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? '/routes/web.php/getBoards' : '/views/login.php'; ?>">
+                    <?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? $_SESSION['username'] : 'Login'; ?>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>

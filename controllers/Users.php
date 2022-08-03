@@ -1,6 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/database/conection.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/User.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/models/Kanban.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/models/Task.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/login.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/logout.php';
@@ -8,6 +10,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/logout.php';
 class UsersController
 {
     private $userModel;
+    private $kanbanModel;
+    private $taskModel;
     private $userLogin;
     private $userLogout;
 
@@ -20,6 +24,8 @@ class UsersController
         $this->userModel    = new UserModel($user);
         $this->userLogin    = new Login($user);
         $this->userLogout   = new Logout();
+        $this->kanbanModel  = new KanbanModel();
+        $this->taskModel    = new TaskModel();
     }
 
     public function get()
@@ -53,7 +59,9 @@ class UsersController
             if ($user['is_admin']) {
                 include($_SERVER['DOCUMENT_ROOT'] . '/views/panelAdmin.php');
             } else {
-                header("Location: /routes/web.php/getBoards");
+                $boards = $this->kanbanModel->getBoards();
+                $tasks  = $this->taskModel->getTasks();
+                include($_SERVER['DOCUMENT_ROOT'] . '/views/kanban.php');
             }
         } else {
             include($_SERVER['DOCUMENT_ROOT'] . '/views/login.php');

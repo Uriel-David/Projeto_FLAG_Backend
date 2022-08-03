@@ -33,7 +33,7 @@ class Board
         $board = [
             'title_board'       => $this->titleBoard,
             'category_board'    => $this->categoryBoard,
-            'board_id'          => $this->board,
+            'board_id'          => $this->boardId,
         ];
 
         return $board;

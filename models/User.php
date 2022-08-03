@@ -30,10 +30,10 @@ class UserModel extends Connection
         return $users;
     }
 
-    public function getUser()
+    public function getUser($id)
     {
         $stmt = $this->db->prepare("SELECT * FROM users WHERE user_id = :user_id");
-        $stmt->execute(['user_id' => $this->user['user_id']]);
+        $stmt->execute(['user_id' => $id]);
         $user = $stmt->fetch();
 
         return $user;

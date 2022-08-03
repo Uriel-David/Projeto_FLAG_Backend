@@ -29,8 +29,10 @@ class Login extends Connection
       for ($i = 0; $i < count($rows); $i++) {
         if (password_verify($user['password'], $rows[$i]['password']) || $user['password'] == $rows[$i]['password']) {
           $_SESSION['userId']     = $rows[$i]['user_id'];
+          $_SESSION['username']   = $rows[$i]['username'];
           $_SESSION['email']      = $user['email'];
           $_SESSION['stateLogin'] = 'logged';
+          $user['user_id']        = $rows[$i]['user_id'];
           
           return true;
         }

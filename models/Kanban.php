@@ -72,9 +72,13 @@ class KanbanModel extends Connection
     {
         $connection = $this->connect();
 
-        $stmt = $connection->prepare('DELETE FROM boards_kanban WHERE board_id = :board_id');
-        $stmt->execute(['board_id' => $this->board['board_id']]);
-        $board = $stmt->fetch();
+        $stmtBoard = $connection->prepare('DELETE FROM boards_kanban WHERE board_id = :board_id');
+        $stmtBoard->execute(['board_id' => $this->board['board_id']]);
+        $board = $stmtBoard->fetch();
+
+        $stmtTasks = $connection->prepare('DELETE FROM tasks_kanban WHERE board_id = :board_id');
+        $stmtTasks->execute(['board_id' => $this->board['board_id']]);
+        $tasks = $stmtTasks->fetchAll();
         
         return $board;
     }
