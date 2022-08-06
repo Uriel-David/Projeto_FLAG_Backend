@@ -26,10 +26,15 @@
                 <?php endif; ?>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? '/routes/web.php/getBoards' : '/views/login.php'; ?>">
-                    <?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? $_SESSION['username'] : 'Login'; ?>
-                </a>
-            </li>
+                <?php if (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged') : ?>    
+                    <a class="nav-link" href="<?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? '/routes/web.php/login' : '/views/login.php'; ?>">
+                        <?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? $_SESSION['username'] : 'Login'; ?>
+                    </a>
+                <?php else : ?>
+                    <a class="nav-link" href="<?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? '/routes/web.php/getBoards' : '/views/login.php'; ?>">
+                        <?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? $_SESSION['username'] : 'Login'; ?>
+                    </a>
+                <?php endif; ?>
         </ul>
     </div>
 </nav>

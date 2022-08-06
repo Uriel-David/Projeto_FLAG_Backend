@@ -53,10 +53,11 @@ class UsersController
 
     public function login()
     {
-        if ($this->userLogin->loginUser()) {
+        if ($this->userLogin->loginUser() || (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged')) {
             $user = $this->userModel->getUser($_SESSION['userId']);
             
             if ($user['is_admin']) {
+                $users = $this->userModel->getUsers();
                 include($_SERVER['DOCUMENT_ROOT'] . '/views/panelAdmin.php');
             } else {
                 $boards = $this->kanbanModel->getBoards();

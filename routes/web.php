@@ -7,7 +7,7 @@ $routes = explode("/", $_SERVER["REQUEST_URI"]);
 $route  = $routes[3];
 $data   = isset($_POST) ? $_POST : null;
 
-if ($route == 'login' && !empty($data)) {
+if ($route == 'login' && (!empty($data) || (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged'))) {
     $usersController = new UsersController($data);
     $usersController->login();
 }

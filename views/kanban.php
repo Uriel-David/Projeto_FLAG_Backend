@@ -15,7 +15,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 <body>
   <header class="container-fluid text-center mb-5">
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/navbar.php'); ?>
-    <div class="text-center">
+    <div class="text-center mt-5">
       <h2>Kanban Board</h2>
     </div>
   </header>
