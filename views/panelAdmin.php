@@ -22,8 +22,42 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 
   <main>
     <div class="container">
-      <?= print_r($users) ?>
-      <?= print_r($_SESSION) ?>
+      <a href="/views/registerUserAdmin.php/" class="btn btn-primary mb-1">Create New User</a>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Name</th>
+            <th scope="col">API Key</th>
+            <th scope="col">Admin</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Updated At</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($users as $user) : ?>
+            <tr>
+              <th scope="row"><?= $user['user_id'] ?></th>
+              <td><?= $user['username'] ?></td>
+              <td><?= $user['email'] ?></td>
+              <td><?= $user['name'] ?></td>
+              <td><?= $user['api_key'] ?></td>
+              <td><?= $user['is_admin'] == 1 ? 'yes' : 'no' ?></td>
+              <td><?= $user['createdAt'] ?></td>
+              <td><?= $user['updatedAt'] ?></td>
+              <td>
+                <a href="/../routes/web.php/editUser?user_id=<?= $user['user_id'] ?>" class="btn btn-info mb-1">Update</a>
+                <?php if ($user['user_id'] != 1) : ?>
+                  <a href="/../routes/web.php/deleteUser?user_id=<?= $user['user_id'] ?>" class="btn btn-danger mt-1">Delete</a>
+                <?php endif; ?>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
     </div>
   </main>
 

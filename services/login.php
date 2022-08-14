@@ -31,6 +31,7 @@ class Login extends Connection
           $_SESSION['userId']     = $rows[$i]['user_id'];
           $_SESSION['username']   = $rows[$i]['username'];
           $_SESSION['email']      = $user['email'];
+          $_SESSION['isAdmin']    = $rows[$i]['is_admin'];
           $_SESSION['stateLogin'] = 'logged';
           $user['user_id']        = $rows[$i]['user_id'];
           

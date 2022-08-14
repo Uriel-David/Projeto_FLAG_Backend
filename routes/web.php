@@ -22,6 +22,26 @@ if ($route == 'logout') {
     $usersController->logout();
 }
 
+if ($route == 'getUsers') {
+    $usersController = new UsersController($data);
+    $usersController->get();
+}
+
+if (str_contains($route, 'editUser')) {
+    $usersController = new UsersController($data);
+    $usersController->edit();
+}
+
+if (str_contains($route, 'updateUser') && !empty($data)) {
+    $usersController = new UsersController($data);
+    $usersController->put();
+}
+
+if (str_contains($route, 'deleteUser')) {
+    $usersController = new UsersController($data);
+    $usersController->delete();
+}
+
 if ($route == 'getBoards') {
     $kanbansController = new KanbansController($data);
     $kanbansController->get();

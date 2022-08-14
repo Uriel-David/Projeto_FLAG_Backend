@@ -1,5 +1,4 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/database/conection.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/User.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/Kanban.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/Task.php';
@@ -37,7 +36,12 @@ class UsersController
     public function post()
     {
         if ($this->userModel->createUser()) {
-            include($_SERVER['DOCUMENT_ROOT'] . '/views/kanban.php');
+            if ($_SESSION['isAdmin']) {
+                $users = $this->userModel->getUsers();
+                include($_SERVER['DOCUMENT_ROOT'] . '/views/panelAdmin.php');
+            } else {
+                include($_SERVER['DOCUMENT_ROOT'] . '/views/kanban.php');
+            }
         } else {
             include($_SERVER['DOCUMENT_ROOT'] . '/views/register.php');
         }
@@ -45,10 +49,26 @@ class UsersController
 
     public function put()
     {
+        $this->userModel->editUser();
+        $this->get();
+    }
+
+    public function edit()
+    {
+        if (isset($_GET['user_id'])) {
+            $id = $_GET['user_id'];
+            $user = $this->userModel->getUser($id);
+            include($_SERVER['DOCUMENT_ROOT'] . '/views/editUser.php');
+        } else {
+            $this->get();
+        }
     }
 
     public function delete()
     {
+            $id = $_GET['user_id'];
+            $this->userModel->deleteUser($id);
+            $this->get();
     }
 
     public function login()
@@ -57,8 +77,7 @@ class UsersController
             $user = $this->userModel->getUser($_SESSION['userId']);
             
             if ($user['is_admin']) {
-                $users = $this->userModel->getUsers();
-                include($_SERVER['DOCUMENT_ROOT'] . '/views/panelAdmin.php');
+                $this->get();
             } else {
                 $boards = $this->kanbanModel->getBoards();
                 $tasks  = $this->taskModel->getTasks();

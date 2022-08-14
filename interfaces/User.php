@@ -7,6 +7,7 @@ class User
     private $email;
     private $password;
     private $userId;
+    private $isAdmin;
 
     public function __construct($user)
     {
@@ -15,6 +16,7 @@ class User
         $this->email    = $user['email'] ?? null;
         $this->password = $user['password'] ?? null;
         $this->userId   = $user['user_id'] ?? null;
+        $this->isAdmin  = $user['is_admin'] ?? 0;
     }
 
     public function getName()
@@ -42,6 +44,11 @@ class User
         return $this->userId;
     }
 
+    public function getIsAdmin()
+    {
+        return $this->isAdmin;
+    }
+
     public function getAllData()
     {
         $user = [
@@ -50,6 +57,7 @@ class User
             'email'     => $this->email,
             'password'  => $this->password,
             'user_id'   => $this->userId,
+            'is_admin'  => $this->isAdmin,
         ];
 
         return $user;

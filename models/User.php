@@ -48,8 +48,8 @@ class UserModel extends Connection
             $apiKey     = bin2hex(random_bytes(20));
             $dateNow    = date('Y-m-d h:m:s');
         
-            $stmt = $this->db->prepare("INSERT INTO users (user_id, username, email, password, name, api_key, createdAt) VALUES (NULL, :username, :email, :password, :name, :api_key, :createdAt)");
-            $stmt->execute(['username' => $user['username'], 'email' => $user['email'], 'password' => $password, 'name' => $user['name'], 'api_key' => $apiKey, 'createdAt' => $dateNow]);
+            $stmt = $this->db->prepare("INSERT INTO users (user_id, username, email, password, name, api_key, is_admin, createdAt) VALUES (NULL, :username, :email, :password, :name, :api_key, :is_admin, :createdAt)");
+            $stmt->execute(['username' => $user['username'], 'email' => $user['email'], 'password' => $password, 'name' => $user['name'], 'api_key' => $apiKey, 'is_admin' => $user['is_admin'], 'createdAt' => $dateNow]);
         
             if ($stmt) {
                 $_SESSION['userId']     = $this->db->lastInsertId();
@@ -81,12 +81,12 @@ class UserModel extends Connection
         return $this->db->lastInsertId();
     }
 
-    public function deleteUser()
+    public function deleteUser($id)
     {
         $connection = $this->connect();
 
         $stmt = $connection->prepare('DELETE FROM users WHERE user_id = :user_id');
-        $stmt->execute(['user_id' => $this->user['user_id']]);
+        $stmt->execute(['user_id' => $id]);
         $user = $stmt->fetch();
         
         return $user;
