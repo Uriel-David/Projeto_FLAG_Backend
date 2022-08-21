@@ -20,7 +20,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
     </div>
   </header>
 
-  <main>
+  <main class="bg-custom">
     <?php if (empty($boards)) : ?>
       <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/formKanban.php'); ?>
     <?php else : ?>

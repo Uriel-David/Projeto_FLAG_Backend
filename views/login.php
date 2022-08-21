@@ -18,8 +18,8 @@ require $_SERVER['DOCUMENT_ROOT'] . '/services/verifyLogged.php';
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/headerLogin.php'); ?>
   </header>
 
-  <main class="container">
-    <form method="post" action="/../routes/web.php/login">
+  <main class="container bg-custom mb-3">
+    <form method="post" action="/../routes/web.php/login" class="py-2 px-2">
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
@@ -29,7 +29,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/services/verifyLogged.php';
         <label for="password" class="form-label">Password:</label>
         <input type="password" class="form-control" name="password" min="8" required>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>
   </main>
 

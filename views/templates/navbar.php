@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbar-app">
+<nav class="navbar navbar-expand-md navbar-light bg-none" id="navbar-app">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -19,7 +19,12 @@
         </button>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse">
-        <ul class="navbar-nav ms-auto">          
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a id="button-dark-mode" class="nav-link" href="#">
+                    Dark Mode
+                </a>
+            </li>          
             <li class="nav-item">
                 <?php if (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged') : ?>
                     <a class="nav-link" href="/../routes/web.php/logout">Logout</a>

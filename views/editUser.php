@@ -15,9 +15,9 @@
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/headerLogin.php'); ?>
   </header>
 
-  <main class="mb-4">
+  <main class="bg-custom mb-4">
     <div class="container form-edit-user">
-      <form method="post" action="/../routes/web.php/updateUser?user_id=<?= $id ?>" class="mt-5">
+      <form method="post" action="/../routes/web.php/updateUser?user_id=<?= $id ?>" class="py-2">
         <div class="mb-3">
           <label for="user_id" class="form-label">ID:</label>
           <input type="text" class="form-control" name="user_id" min="3" max="160" value="<?= $user['user_id'] ?>" readonly required>
@@ -50,9 +50,9 @@
           <label for="api_key" class="form-label">API Key:</label>
           <input type="text" class="form-control" name="api_key" value="<?= $user['api_key'] ?>" readonly required>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
 
-        <a href="/../routes/web.php/getUsers" class="btn btn-secundary mr-auto">back</a>
+        <a href="/../routes/web.php/getUsers" class="btn btn-secundary mb-2 mr-auto">back</a>
       </form>
     </div>
   </main>

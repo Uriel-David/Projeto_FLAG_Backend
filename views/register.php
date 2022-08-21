@@ -15,8 +15,8 @@
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/headerLogin.php'); ?>
   </header>
 
-  <main class="container">
-    <form method="post" action="/../routes/web.php/register">
+  <main class="container bg-custom mb-3">
+    <form method="post" action="/../routes/web.php/register" class="py-2 px-2">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" class="form-control" name="name" aria-describedby="nameHelp" min="3" max="160" required>
@@ -36,7 +36,7 @@
         <label for="password" class="form-label">Password:</label>
         <input type="password" class="form-control" name="password" min="8" required>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>
   </main>
 

@@ -20,9 +20,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
     </div>
   </header>
 
-  <main>
+  <main class="container bg-custom">
     <div class="container">
-      <a href="/views/registerUserAdmin.php/" class="btn btn-primary mb-1">Create New User</a>
+      <a href="/views/registerUserAdmin.php/" class="btn btn-primary mb-1 mt-2">Create New User</a>
       <table class="table">
         <thead>
           <tr>
