@@ -27,6 +27,11 @@ if ($route == 'getUsers') {
     $usersController->get();
 }
 
+if ($route == 'userPanel') {
+    $usersController = new UsersController($data);
+    $usersController->getOne();
+}
+
 if (str_contains($route, 'editUser')) {
     $usersController = new UsersController($data);
     $usersController->edit();

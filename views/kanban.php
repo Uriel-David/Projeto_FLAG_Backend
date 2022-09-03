@@ -26,12 +26,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
     <?php else : ?>
       <div class="container text-center">
         <p>
-          <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#formKanbanBoard" aria-expanded="false" aria-controls="formKanbanBoard">Boards Kanban</button>
+          <button class="btn btn-dark mt-4 mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#formKanbanBoard" aria-expanded="false" aria-controls="formKanbanBoard">Boards Kanban</button>
 
-          <button class="btn btn-dark" data-bs-toggle="collapse" href="#kanbanBoards" role="button" aria-expanded="false" aria-controls="kanbanBoards">Create New Board</button>
+          <button class="btn btn-dark mt-4 mb-4" data-bs-toggle="collapse" href="#kanbanBoards" role="button" aria-expanded="false" aria-controls="kanbanBoards">Create New Board</button>
         </p>
       </div>
-      <div class="container-fluid text-center">
+      <div class="container-fluid text-center py-2">
         <div class="container mt-2 mb-1">
           <div class="collapse multi-collapse" id="formKanbanBoard">
             <?php foreach ($boards as $board) : ?>

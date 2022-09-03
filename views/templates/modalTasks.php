@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-light mb-1" data-bs-toggle="modal" data-bs-target="#modalTask-<?= $task['task_id'] ?>">
+<button type="button" class="btn btn-dark mb-1" data-bs-toggle="modal" data-bs-target="#modalTask-<?= $task['task_id'] ?>">
     <?= $task['task_title'] ?>
 </button>
 

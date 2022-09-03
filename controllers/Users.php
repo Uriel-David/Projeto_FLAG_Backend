@@ -33,6 +33,12 @@ class UsersController
         include($_SERVER['DOCUMENT_ROOT'] . '/views/panelAdmin.php');
     }
 
+    public function getOne()
+    {
+        $user = $this->userModel->getUser($_SESSION['userId']);
+        include($_SERVER['DOCUMENT_ROOT'] . '/views/panelUser.php');
+    }
+
     public function post()
     {
         if ($this->userModel->createUser()) {

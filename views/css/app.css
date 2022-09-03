@@ -3,12 +3,6 @@
     padding: 0;
 }
 
-body {
-    background-image: url('/views/assets/bg-home.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .container {
     border-radius: 20px;
 }
