@@ -7,7 +7,7 @@
             </div>
             <div class="mb-3">
                 <label for="description_task" class="form-label">Task - Description:</label>
-                <input type="text" class="form-control" name="description_task" id="description_task" value="<?= isset($task['task_description']) ? $task['task_description'] : '' ?>" required />
+                <textarea type="text" class="form-control" name="description_task" id="description_task" value="<?= isset($task['task_description']) ? $task['task_description'] : '' ?>" required></textarea>
             </div>
             <label for="category_task" class="form-label">Task - Category:</label>
             <select class="form-select mb-3" name="category_task" aria-label="Task Category">

@@ -1,5 +1,6 @@
 window.onload = () => {
-    const btnDarkMode = document.getElementById('button-dark-mode');
+    const btnDarkMode   = document.getElementById('button-dark-mode');
+    const btnUpdateUser = document.getElementById('btn-update-user');
 
     if (localStorage.getItem('mode-screen') === 'Dark Mode') {
         document.documentElement.classList.toggle('dark-mode');
@@ -17,5 +18,23 @@ window.onload = () => {
         if (btnDarkMode.innerText === 'Dark Mode') {
             localStorage.setItem('mode-screen', 'Light Mode')
         }
+    });
+
+    const hideOrShow = (elementShow, elementHide) => {
+        const elementDisplay = document.getElementById(elementShow);
+        const elementHidden = document.getElementById(elementHide);
+
+        if(elementDisplay.classList.contains('hide')) {
+            elementDisplay.classList.remove('hide');
+            elementHidden.classList.add('hide');
+        } else {
+            elementDisplay.classList.add('hide');
+            elementHidden.classList.remove('hide');
+        }
+    };
+
+    btnUpdateUser.addEventListener("click", () => {
+        hideOrShow('data-list-user', 'form-update-user');
+        btnUpdateUser.innerText = btnUpdateUser.innerText === 'Update Info' ? 'Get Info' : 'Update Info';
     });
 };

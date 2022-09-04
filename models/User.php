@@ -67,14 +67,21 @@ class UserModel extends Connection
             $userData   = new User($this->user);
             $user       = $userData->getAllData();
             $password   = password_hash($user['password'], PASSWORD_DEFAULT);
-        
-            $stmt = $this->db->prepare("UPDATE users SET username = :username, email = :email, password = :password, name = :name WHERE user_id = :user_id");
-            $stmt->execute(['username' => $user['username'], 'email' => $user['email'], 'password' => $password, 'name' => $user['name'], 'user_id' => $user['user_id']]);
-        
-            if ($stmt) {
-                $_SESSION['userId']     = $user['user_id'];
-                $_SESSION['email']      = $user['email'];
-                $_SESSION['stateLogin'] = 'logged';
+
+            $stmt = $this->db->prepare("SELECT * FROM users WHERE user_id = :user_id");
+            $stmt->execute(['user_id' => $user['user_id']]);
+            $selectUser = $stmt->fetch();
+
+            if ($selectUser['password'] != $user['password']) {
+                $stmt = null;
+                $stmt = $this->db->prepare("UPDATE users SET username = :username, email = :email, password = :password, name = :name WHERE user_id = :user_id");
+                $stmt->execute(['username' => $user['username'], 'email' => $user['email'], 'password' => $password, 'name' => $user['name'], 'user_id' => $user['user_id']]);
+            }
+
+            if ($selectUser['password'] == $user['password']) {
+                $stmt = null;
+                $stmt = $this->db->prepare("UPDATE users SET username = :username, email = :email, name = :name WHERE user_id = :user_id");
+                $stmt->execute(['username' => $user['username'], 'email' => $user['email'], 'name' => $user['name'], 'user_id' => $user['user_id']]);
             }
         }
       

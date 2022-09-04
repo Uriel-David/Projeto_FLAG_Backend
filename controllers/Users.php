@@ -56,7 +56,11 @@ class UsersController
     public function put()
     {
         $this->userModel->editUser();
-        $this->get();
+        if ($_SESSION['isAdmin']) {
+            $this->get();
+        } else {
+            $this->getOne();
+        }
     }
 
     public function edit()

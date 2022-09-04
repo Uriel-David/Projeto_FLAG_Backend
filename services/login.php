@@ -27,7 +27,7 @@ class Login extends Connection
       $rows = $stmt->fetchAll();
 
       for ($i = 0; $i < count($rows); $i++) {
-        if (password_verify($user['password'], $rows[$i]['password']) || $user['password'] == $rows[$i]['password']) {
+        if (password_verify($user['password'], $rows[$i]['password'])) {
           $_SESSION['userId']     = $rows[$i]['user_id'];
           $_SESSION['username']   = $rows[$i]['username'];
           $_SESSION['email']      = $user['email'];

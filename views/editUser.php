@@ -44,7 +44,7 @@
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password:</label>
-          <input type="text" class="form-control" name="password" min="8" value="<?= $user['user_id'] == 1 ? '' : $user['password'] ?>" <?= $user['user_id'] != 1 ? 'readonly' : '' ?> required>
+          <input type="password" class="form-control" name="password" min="8" value="<?= $user['user_id'] == 1 ? '' : $user['password'] ?>" <?= $user['user_id'] != 1 ? 'readonly' : '' ?> required>
         </div>
         <div class="mb-3">
           <label for="api_key" class="form-label">API Key:</label>

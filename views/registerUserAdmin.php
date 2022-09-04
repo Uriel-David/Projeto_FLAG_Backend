@@ -40,7 +40,7 @@
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password:</label>
-          <input type="text" class="form-control" name="password" min="8" required>
+          <input type="password" class="form-control" name="password" min="8" required>
         </div>
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
 

@@ -20,6 +20,10 @@
     filter: invert(1) hue-rotate(180deg);
 }
 
+.hide {
+    display: none !important;
+}
+
 #delete-board-submit {
     width: 100%;
     box-sizing: border-box;
