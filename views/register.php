@@ -16,7 +16,7 @@
   </header>
 
   <main class="container bg-custom mb-3">
-    <form method="post" action="/../routes/web.php/register" class="py-2 px-2">
+    <form method="post" action="/register" class="py-2 px-2">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" class="form-control" name="name" aria-describedby="nameHelp" min="3" max="160" required>

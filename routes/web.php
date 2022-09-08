@@ -4,22 +4,38 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/controllers/Kanbans.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 
 $routes = explode("/", $_SERVER["REQUEST_URI"]);
-$route  = $routes[3];
+$route  = $routes[1];
 $data   = isset($_POST) ? $_POST : null;
 
-if ($route == 'login' && (!empty($data) || (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged'))) {
-    $usersController = new UsersController($data);
-    $usersController->login();
+if ($route == '') {
+    include($_SERVER['DOCUMENT_ROOT'] . '/views/home.php');
 }
 
-if ($route == 'register' && !empty($data)) {
+if ($route == 'about') {
+    include($_SERVER['DOCUMENT_ROOT'] . '/views/about.php');
+}
+
+if ($route == 'register') {
+    include($_SERVER['DOCUMENT_ROOT'] . '/views/register.php');
+}
+
+if ($route == 'login') {
+    include($_SERVER['DOCUMENT_ROOT'] . '/views/login.php');
+}
+
+if ($route == 'homeKanban' && (!empty($data) || (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged'))) {
     $usersController = new UsersController($data);
-    $usersController->post();
+    $usersController->login();
 }
 
 if ($route == 'logout') {
     $usersController = new UsersController($data);
     $usersController->logout();
+}
+
+if ($route == 'register' && !empty($data)) {
+    $usersController = new UsersController($data);
+    $usersController->post();
 }
 
 if ($route == 'getUsers') {

@@ -5,10 +5,10 @@
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/views/about.php">About</a>
+                <a class="nav-link" href="/about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/views/register.php">Register</a>
+                <a class="nav-link" href="/register">Register</a>
             </li>
         </ul>
     </div>
@@ -27,24 +27,19 @@
             </li>          
             <li class="nav-item">
                 <?php if (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged') : ?>
-                    <a class="nav-link" href="/../routes/web.php/logout">Logout</a>
+                    <a class="nav-link" href="/logout">Logout</a>
                 <?php endif; ?>
             </li>
             <li class="nav-item">
                 <?php if (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged') : ?>
-                    <a class="nav-link" href="/../routes/web.php/userPanel">User Panel</a>
+                    <a class="nav-link" href="/userPanel">User Panel</a>
                 <?php endif; ?>
             </li>
             <li class="nav-item">
-                <?php if (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged') : ?>    
-                    <a class="nav-link" href="<?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? '/routes/web.php/login' : '/views/login.php'; ?>">
-                        <?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? $_SESSION['username'] : 'Login'; ?>
-                    </a>
-                <?php else : ?>
-                    <a class="nav-link" href="<?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? '/routes/web.php/getBoards' : '/views/login.php'; ?>">
-                        <?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? $_SESSION['username'] : 'Login'; ?>
-                    </a>
-                <?php endif; ?>
+                <a class="nav-link" href="<?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? '/getBoards' : '/login'; ?>">
+                    <?=  isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged' ? $_SESSION['username'] : 'Login'; ?>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

@@ -19,7 +19,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/services/verifyLogged.php';
   </header>
 
   <main class="container bg-custom mb-3">
-    <form method="post" action="/../routes/web.php/login" class="py-2 px-2">
+    <form method="post" action="/homeKanban" class="py-2 px-2">
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>

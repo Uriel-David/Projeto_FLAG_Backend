@@ -1,6 +1,6 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/database/conection.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/database/conection.php';
 
 $email    = isset($_SESSION['email']) ? $_SESSION['email'] : null;
 $password = isset($_SESSION['password']) ? $_SESSION['password'] : null;
