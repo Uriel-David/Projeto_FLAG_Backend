@@ -8,9 +8,9 @@ class Board
 
     public function __construct($board)
     {
-        $this->titleBoard      = $board['title_board'] ?? null;
-        $this->categoryBoard   = $board['category_board'] ?? null;
-        $this->boardId         = $board['board_id'] ?? null;
+        $this->titleBoard      = htmlspecialchars($board['title_board']) ?? null;
+        $this->categoryBoard   = htmlspecialchars($board['category_board']) ?? null;
+        $this->boardId         = htmlspecialchars($board['board_id']) ?? null;
     }
 
     public function getTitle()

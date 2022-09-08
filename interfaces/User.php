@@ -11,12 +11,12 @@ class User
 
     public function __construct($user)
     {
-        $this->name     = $user['name'] ?? null;
-        $this->username = $user['username'] ?? null;
-        $this->email    = $user['email'] ?? null;
-        $this->password = $user['password'] ?? null;
-        $this->userId   = $user['user_id'] ?? null;
-        $this->isAdmin  = $user['is_admin'] ?? 0;
+        $this->name     = htmlspecialchars($user['name']) ?? null;
+        $this->username = htmlspecialchars($user['username']) ?? null;
+        $this->email    = htmlspecialchars($user['email']) ?? null;
+        $this->password = htmlspecialchars($user['password']) ?? null;
+        $this->userId   = htmlspecialchars($user['user_id']) ?? null;
+        $this->isAdmin  = htmlspecialchars($user['is_admin']) ?? 0;
     }
 
     public function getName()

@@ -10,11 +10,11 @@ class Task
 
     public function __construct($task)
     {
-        $this->titleTask        = $task['title_task'] ?? null;
-        $this->descriptionTask  = $task['description_task'] ?? null;
-        $this->categoryTask     = $task['category_task'] ?? null;
-        $this->boardId          = $task['board_id'] ?? null;
-        $this->taskId           = $task['task_id'] ?? null;
+        $this->titleTask        = htmlspecialchars($task['title_task']) ?? null;
+        $this->descriptionTask  = htmlspecialchars($task['description_task']) ?? null;
+        $this->categoryTask     = htmlspecialchars($task['category_task']) ?? null;
+        $this->boardId          = htmlspecialchars($task['board_id']) ?? null;
+        $this->taskId           = htmlspecialchars($task['task_id']) ?? null;
     }
 
     public function getTitle()

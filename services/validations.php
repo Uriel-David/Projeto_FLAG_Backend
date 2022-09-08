@@ -3,7 +3,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 
 class ValidationForm
 {
-  public function validateFormLogin($data, $params = null)
+  public function validateFormLogin($data)
   {
     if (
         !isset($data['email'])
@@ -22,7 +22,7 @@ class ValidationForm
     return false;
   }
 
-  public function validateFormRegister($data, $params = null)
+  public function validateFormRegister($data)
   {
     if (
         !isset($data['email'])
@@ -45,7 +45,7 @@ class ValidationForm
     return false;
   }
 
-  public function validateFormBoardCreate($data, $params = null)
+  public function validateFormBoardCreate($data)
   {
     if (
       !isset($data['title_board'])
@@ -64,7 +64,7 @@ class ValidationForm
     return false;
   }
 
-  public function validateFormTaskCreate($data, $params = null)
+  public function validateFormTaskCreate($data)
   {
     if (
       !isset($data['title_task'])
@@ -87,7 +87,7 @@ class ValidationForm
 
   private function validateName($fieldName)
   {
-    $fieldName = trim($fieldName);
+    $fieldName = htmlspecialchars(trim($fieldName));
 
     if (strlen($fieldName) < 3) {
       return false;
@@ -102,7 +102,7 @@ class ValidationForm
 
   private function validateEmail($fieldEmail)
   {
-    $fieldEmail = filter_var($fieldEmail, FILTER_SANITIZE_EMAIL);
+    $fieldEmail = htmlspecialchars(filter_var($fieldEmail, FILTER_SANITIZE_EMAIL));
 
     if (strlen($fieldEmail) < 6) {
       return false;
@@ -117,7 +117,7 @@ class ValidationForm
 
   private function validateUsername($fieldUsername)
   {
-    $fieldUsername = trim($fieldUsername);
+    $fieldUsername = htmlspecialchars(trim($fieldUsername));
 
     if (strlen($fieldUsername) < 3) {
       return false;
@@ -144,7 +144,7 @@ class ValidationForm
   }
 
   private function validateTitleBoard($fieldTitleBoard) {
-    $fieldTitleBoard = trim($fieldTitleBoard);
+    $fieldTitleBoard = htmlspecialchars(trim($fieldTitleBoard));
 
     if (strlen($fieldTitleBoard) < 1) {
       return false;
@@ -158,7 +158,7 @@ class ValidationForm
   }
 
   private function validateCategoryBoard($fieldCategoryBoard) {
-    $fieldCategoryBoard = trim($fieldCategoryBoard);
+    $fieldCategoryBoard = htmlspecialchars(trim($fieldCategoryBoard));
 
     if ($fieldCategoryBoard == 'work') {
       return true;
@@ -176,7 +176,7 @@ class ValidationForm
   }
 
   private function validateTitleTask($fieldTitleTask) {
-    $fieldTitleTask = trim($fieldTitleTask);
+    $fieldTitleTask = htmlspecialchars(trim($fieldTitleTask));
 
     if (strlen($fieldTitleTask) < 1) {
       return false;
@@ -190,7 +190,7 @@ class ValidationForm
   }
 
   private function validateDescriptionTask($fieldDescriptionTask) {
-    $fieldDescriptionTask = trim($fieldDescriptionTask);
+    $fieldDescriptionTask = htmlspecialchars(trim($fieldDescriptionTask));
 
     if (strlen($fieldDescriptionTask) > 200) {
       return false;
@@ -200,7 +200,7 @@ class ValidationForm
   }
 
   private function validateCategoryTask($fieldCategoryTask) {
-    $fieldCategoryTask = trim($fieldCategoryTask);
+    $fieldCategoryTask = htmlspecialchars(trim($fieldCategoryTask));
 
     if ($fieldCategoryTask == 'backlog') {
       return true;
