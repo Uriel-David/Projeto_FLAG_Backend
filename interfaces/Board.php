@@ -8,34 +8,32 @@ class Board
 
     public function __construct($board)
     {
-        $this->titleBoard      = htmlspecialchars($board['title_board']) ?? null;
-        $this->categoryBoard   = htmlspecialchars($board['category_board']) ?? null;
-        $this->boardId         = htmlspecialchars($board['board_id']) ?? null;
+        $this->titleBoard      = $board['title_board'] ?? null;
+        $this->categoryBoard   = $board['category_board'] ?? null;
+        $this->boardId         = $board['board_id'] ?? null;
     }
 
     public function getTitle()
     {
-        return $this->titleBoard;
+        return htmlspecialchars($this->titleBoard);
     }
 
     public function getCategory()
     {
-        return $this->categoryBoard;
+        return htmlspecialchars($this->categoryBoard);
     }
 
     public function getId()
     {
-        return $this->boardId;
+        return htmlspecialchars($this->boardId);
     }
 
     public function getAllData()
     {
-        $board = [
-            'title_board'       => $this->titleBoard,
-            'category_board'    => $this->categoryBoard,
-            'board_id'          => $this->boardId,
+        return [
+            'title_board'       => htmlspecialchars($this->titleBoard),
+            'category_board'    => htmlspecialchars($this->categoryBoard),
+            'board_id'          => htmlspecialchars($this->boardId),
         ];
-
-        return $board;
     }
 }
