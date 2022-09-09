@@ -1,6 +1,6 @@
 <div class="row limit-size">
     <div class="col-md-6 offset-md-3">
-        <form method="POST" action="/../routes/web.php/createTask">
+        <form method="POST" action="/createTask">
             <div class="mb-3">
                 <label for="title_task" class="form-label">Task - Title:</label>
                 <input type="text" class="form-control" name="title_task" id="title_task" required />

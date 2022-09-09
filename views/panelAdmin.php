@@ -20,9 +20,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
     </div>
   </header>
 
-  <main class="container bg-custom">
-    <div class="container">
-      <a href="/views/registerUserAdmin.php/" class="btn btn-primary mb-1 mt-2">Create New User</a>
+  <main class="container bg-custom mb-4 mt-2">
+    <div class="container table-responsive">
+      <a href="/registerUserAdmin" class="btn btn-primary mb-2 mt-2">Create New User</a>
       <table class="table">
         <thead>
           <tr>
@@ -49,9 +49,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
               <td><?= $user['createdAt'] ?></td>
               <td><?= $user['updatedAt'] ?></td>
               <td>
-                <a href="/../routes/web.php/editUser?user_id=<?= $user['user_id'] ?>" class="btn btn-info mb-1">Update</a>
+                <a href="/editUser?user_id=<?= $user['user_id'] ?>" class="btn btn-info mb-1">Update</a>
                 <?php if ($user['user_id'] != 1) : ?>
-                  <a href="/../routes/web.php/deleteUser?user_id=<?= $user['user_id'] ?>" class="btn btn-danger mt-1">Delete</a>
+                  <a href="/deleteUser?user_id=<?= $user['user_id'] ?>" class="btn btn-danger mt-1">Delete</a>
                 <?php endif; ?>
               </td>
             </tr>

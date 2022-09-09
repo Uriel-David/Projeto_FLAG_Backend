@@ -118,7 +118,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
                     </div>
                   </div>
                   
-                  <form method="POST" action="/../routes/web.php/deleteBoard" id="delete-board-form">
+                  <form method="POST" action="/deleteBoard" id="delete-board-form">
                     <input type="hidden" class="board_id" name="board_id" value="<?= $board['board_id'] ?>" />
                     <button type="submit" id="delete-board-submit" class="btn btn-danger d-block">&Oslash; Delete Board</button>
                   </form>

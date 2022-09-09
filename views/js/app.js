@@ -1,6 +1,20 @@
 window.onload = () => {
     const btnDarkMode   = document.getElementById('button-dark-mode');
     const btnUpdateUser = document.getElementById('btn-update-user');
+    const registerForm  = document.getElementsByClassName('register-form');
+
+    const hideOrShow = (elementShow, elementHide) => {
+        const elementDisplay = document.getElementById(elementShow);
+        const elementHidden = document.getElementById(elementHide);
+
+        if(elementDisplay.classList.contains('hide')) {
+            elementDisplay.classList.remove('hide');
+            elementHidden.classList.add('hide');
+        } else {
+            elementDisplay.classList.add('hide');
+            elementHidden.classList.remove('hide');
+        }
+    };
 
     if (localStorage.getItem('mode-screen') === 'Dark Mode') {
         document.documentElement.classList.toggle('dark-mode');
@@ -20,21 +34,19 @@ window.onload = () => {
         }
     });
 
-    const hideOrShow = (elementShow, elementHide) => {
-        const elementDisplay = document.getElementById(elementShow);
-        const elementHidden = document.getElementById(elementHide);
-
-        if(elementDisplay.classList.contains('hide')) {
-            elementDisplay.classList.remove('hide');
-            elementHidden.classList.add('hide');
-        } else {
-            elementDisplay.classList.add('hide');
-            elementHidden.classList.remove('hide');
-        }
-    };
-
     btnUpdateUser.addEventListener("click", () => {
         hideOrShow('data-list-user', 'form-update-user');
         btnUpdateUser.innerText = btnUpdateUser.innerText === 'Update Info' ? 'Get Info' : 'Update Info';
+    });
+
+    registerForm.addEventListener("submit", () => {
+        const password          = document.querySelector('input[name=password]');
+        const confirmPassword   = document.querySelector('input[name=confirmPassword]');
+
+        if (confirmPassword.value == password.value) {
+            confirmPassword.setCustomValidity('');
+        } else {
+            confirmPassword.setCustomValidity('Password and Confirm Password fields are different.');
+        }
     });
 };

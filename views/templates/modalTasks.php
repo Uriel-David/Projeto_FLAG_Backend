@@ -15,7 +15,7 @@
                 <?= $task['task_description'] ?>
             </div>
             <div class="modal-footer">
-                <form method="POST" action="/../routes/web.php/deleteTask">
+                <form method="POST" action="/deleteTask">
                     <input type="hidden" class="board_id" name="board_id" value="<?= $board['board_id'] ?>" />
                     <input type="hidden" class="task_id" name="task_id" value="<?= $task['task_id'] ?>" />
                     <button type="submit" class="btn btn-danger">&Oslash; Delete</button>

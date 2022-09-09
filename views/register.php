@@ -16,7 +16,7 @@
   </header>
 
   <main class="container bg-custom mb-3">
-    <form method="post" action="/register" class="py-2 px-2">
+    <form method="post" action="/register" class="register-form py-2 px-2">
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" class="form-control" name="name" aria-describedby="nameHelp" min="3" max="160" required>
@@ -35,6 +35,10 @@
       <div class="mb-3">
         <label for="password" class="form-label">Password:</label>
         <input type="password" class="form-control" name="password" min="8" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Confirm Password:</label>
+        <input type="password" class="form-control" name="confirmPassword" min="8" required>
       </div>
       <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>

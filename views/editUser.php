@@ -17,10 +17,10 @@
 
   <main class="bg-custom mb-4">
     <div class="container form-edit-user">
-      <form method="post" action="/../routes/web.php/updateUser?user_id=<?= $id ?>" class="py-2">
+      <form method="post" action="/updateUser?user_id=<?= $id ?>" class="register-form py-2">
         <div class="mb-3">
           <label for="user_id" class="form-label">ID:</label>
-          <input type="text" class="form-control" name="user_id" min="3" max="160" value="<?= $user['user_id'] ?>" readonly required>
+          <input type="text" class="form-control" name="user_id" min="3" max="160" value="<?= $user['user_id'] ?>" readonly disabled required>
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Name:</label>
@@ -44,15 +44,20 @@
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password:</label>
-          <input type="password" class="form-control" name="password" min="8" value="<?= $user['user_id'] == 1 ? '' : $user['password'] ?>" <?= $user['user_id'] != 1 ? 'readonly' : '' ?> required>
+          <input type="password" class="form-control" name="password">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Confirm Password:</label>
+          <input type="password" class="form-control" name="confirmPassword">
         </div>
         <div class="mb-3">
           <label for="api_key" class="form-label">API Key:</label>
-          <input type="text" class="form-control" name="api_key" value="<?= $user['api_key'] ?>" readonly required>
+          <input type="text" class="form-control" name="api_key" value="<?= $user['api_key'] ?>" readonly disabled required>
         </div>
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
 
-        <a href="/../routes/web.php/getUsers" class="btn btn-secundary mb-2 mr-auto">back</a>
+        <input type="hidden" class="user_id" name="user_id" value="<?= $user['user_id'] ?>">
+        <a href="/getUsers" class="btn btn-secundary mb-2 mr-auto">back</a>
       </form>
     </div>
   </main>

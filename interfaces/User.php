@@ -41,12 +41,12 @@ class User
 
     public function getId()
     {
-        return htmlspecialchars($this->userId);
+        return $this->userId;
     }
 
     public function getIsAdmin()
     {
-        return htmlspecialchars($this->isAdmin);
+        return $this->isAdmin;
     }
 
     public function getAllData()

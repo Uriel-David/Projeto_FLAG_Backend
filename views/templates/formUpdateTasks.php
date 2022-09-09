@@ -1,13 +1,13 @@
 <div class="row limit-size">
     <div class="col-md-6 offset-md-3">
-        <form method="POST" action="/../routes/web.php/updateTask">
+        <form method="POST" action="/updateTask">
             <div class="mb-3">
                 <label for="title_task" class="form-label">Task - Title:</label>
                 <input type="text" class="form-control" name="title_task" id="title_task" value="<?= isset($task['task_title']) ? $task['task_title'] : '' ?>" required />
             </div>
             <div class="mb-3">
                 <label for="description_task" class="form-label">Task - Description:</label>
-                <textarea type="text" class="form-control" name="description_task" id="description_task" value="<?= isset($task['task_description']) ? $task['task_description'] : '' ?>" required></textarea>
+                <textarea type="text" class="form-control" name="description_task" id="description_task" required><?= $task['task_description'] ?></textarea>
             </div>
             <label for="category_task" class="form-label">Task - Category:</label>
             <select class="form-select mb-3" name="category_task" aria-label="Task Category">

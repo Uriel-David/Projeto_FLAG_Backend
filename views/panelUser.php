@@ -33,7 +33,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
         <li class="list-group-item">Last update user info: <?= $user['createdAt']; ?></li>
       </ul>
 
-      <form method="post" action="/../routes/web.php/updateUser?user_id=<?= $user['user_id'] ?>" id="form-update-user" class="hide">
+      <form method="post" action="/updateUser?user_id=<?= $user['user_id'] ?>" id="form-update-user" class="register-form hide">
         <div class="mb-3">
           <label for="name" class="form-label">Name:</label>
           <input type="text" class="form-control" name="name" min="3" max="160" value="<?= $user['name'] ?>" required>
@@ -48,11 +48,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password:</label>
-          <input type="password" class="form-control" name="password" min="8" value="<?= $user['password'] ?>" required>
+          <input type="password" class="form-control" name="password" value="">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Confirm Password:</label>
+          <input type="password" class="form-control" name="confirmPassword" value="">
         </div>
         <div class="mb-3">
           <label for="api_key" class="form-label">API Key:</label>
-          <input type="text" class="form-control" name="api_key" value="<?= $user['api_key'] ?>" readonly required>
+          <input type="text" class="form-control" name="api_key" value="<?= $user['api_key'] ?>" readonly disabled required>
         </div>
         <input type="hidden" class="user_id" name="user_id" value="<?= $user['user_id'] ?>">
         <button type="submit" class="btn btn-primary mb-2">Submit</button>

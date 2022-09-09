@@ -101,6 +101,6 @@ class UsersController
     public function logout()
     {
         $this->userLogout->logoutUser();
-        include($_SERVER['DOCUMENT_ROOT'] . '/index.php');
+        include($_SERVER['DOCUMENT_ROOT'] . '/views/home.php');
     }
 }
