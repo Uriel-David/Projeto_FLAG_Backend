@@ -96,7 +96,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
                   </div>
                   
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-info mt-4 mb-1" data-bs-toggle="modal" data-bs-target="#formModalUpdateBoard<?= $board['board_id'] ?>">
+                  <button type="button" class="btn btn-info mt-4" data-bs-toggle="modal" data-bs-target="#formModalUpdateBoard<?= $board['board_id'] ?>">
                     Update Board
                   </button>
 
@@ -117,11 +117,32 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
                       </div>
                     </div>
                   </div>
-                  
-                  <form method="POST" action="/deleteBoard" id="delete-board-form">
-                    <input type="hidden" class="board_id" name="board_id" value="<?= $board['board_id'] ?>" />
-                    <button type="submit" id="delete-board-submit" class="btn btn-danger d-block">&Oslash; Delete Board</button>
-                  </form>
+
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-danger mt-2" data-bs-toggle="modal" data-bs-target="#formModalDeleteBoard<?= $board['board_id'] ?>">
+                    &Oslash; Delete Board
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="formModalDeleteBoard<?= $board['board_id'] ?>" tabindex="-1" aria-labelledby="titleFormDeleteBoardModal-<?= $board['board_id'] ?>" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="titleFormDeleteBoardModal-<?= $board['board_id'] ?>">Deletar Board</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure you want to delete this Board?
+                        </div>
+                        <div class="modal-footer">
+                          <form method="POST" action="/deleteBoard" id="delete-board-form">
+                            <input type="hidden" class="board_id" name="board_id" value="<?= $board['board_id'] ?>" />
+                            <button type="submit" id="delete-board-submit" class="btn btn-danger d-block">&Oslash; Delete Board</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             <?php endforeach; ?>

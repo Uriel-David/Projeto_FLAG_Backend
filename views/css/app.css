@@ -24,6 +24,10 @@
     display: none !important;
 }
 
+.btn-action-user {
+    width: 100%;
+}
+
 #delete-board-submit {
     width: 100%;
     box-sizing: border-box;

@@ -49,9 +49,32 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
               <td><?= $user['createdAt'] ?></td>
               <td><?= $user['updatedAt'] ?></td>
               <td>
-                <a href="/editUser?user_id=<?= $user['user_id'] ?>" class="btn btn-info mb-1">Update</a>
+                <a href="/editUser?user_id=<?= $user['user_id'] ?>" class="btn btn-info mb-1 btn-action-user">Update</a>
                 <?php if ($user['user_id'] != 1) : ?>
-                  <a href="/deleteUser?user_id=<?= $user['user_id'] ?>" class="btn btn-danger mt-1">Delete</a>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-danger mt-2 btn-action-user" data-bs-toggle="modal" data-bs-target="#formModalDeleteUser<?= $user['user_id'] ?>">
+                      &Oslash; Delete Board
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="formModalDeleteUser<?= $user['user_id'] ?>" tabindex="-1" aria-labelledby="titleFormDeleteUserModal-<?= $user['user_id'] ?>" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="titleFormDeleteUserModal-<?= $user['user_id'] ?>">Delete User</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure you want to delete this user?
+                        </div>
+                        <div class="modal-footer">
+                          <form method="POST" action="/deleteUser?user_id=<?= $user['user_id'] ?>" id="delete-board-form">
+                            <input type="hidden" class="user_id" name="user_id" value="<?= $user['user_id'] ?>" />
+                            <button type="submit" id="delete-board-submit" class="btn btn-danger d-block">&Oslash; Delete User</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 <?php endif; ?>
               </td>
             </tr>
