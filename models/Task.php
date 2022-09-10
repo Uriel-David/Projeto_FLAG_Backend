@@ -68,9 +68,7 @@ class TaskModel extends Connection
 
     public function deleteTask()
     {
-        $connection = $this->connect();
-
-        $stmt = $connection->prepare('DELETE FROM tasks_kanban WHERE task_id = :task_id');
+        $stmt = $this->db->prepare('DELETE FROM tasks_kanban WHERE task_id = :task_id');
         $stmt->execute(['task_id' => $this->task['task_id']]);
         $task = $stmt->fetch();
         

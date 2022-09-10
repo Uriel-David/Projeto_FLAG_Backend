@@ -5,6 +5,8 @@ class ValidationForm
 {
   public function validateFormLogin($data)
   {
+    $confirmPassword = isset($data['confirmPassword']) ? $data['confirmPassword'] : $data['password'];
+
     if (
         !isset($data['email'])
         && !isset($data['password'])
@@ -14,7 +16,7 @@ class ValidationForm
 
     if (
       $this->validateEmail($data['email'])
-      && $this->validatePassword($data['password'])
+      && $this->validatePassword($data['password'], $confirmPassword)
     ) {
       return true;
     }
@@ -24,6 +26,8 @@ class ValidationForm
 
   public function validateFormRegister($data)
   {
+    $confirmPassword = isset($data['confirmPassword']) ? $data['confirmPassword'] : $data['password'];
+
     if (
         !isset($data['email'])
         && !isset($data['password'])
@@ -35,7 +39,7 @@ class ValidationForm
 
     if (
       $this->validateEmail($data['email'])
-      && $this->validatePassword($data['password'])
+      && $this->validatePassword($data['password'], $confirmPassword)
       && $this->validateName($data['name'])
       && $this->validateUsername($data['username'])
     ) {
@@ -130,8 +134,12 @@ class ValidationForm
     return true;
   }
 
-  private function validatePassword($fieldPassword)
+  private function validatePassword($fieldPassword, $fieldConfirmPassword)
   {
+    if (isset($fieldConfirmPassword) && $fieldPassword !== $fieldConfirmPassword) {
+      return false;
+    }
+
     if (strlen($fieldPassword) < 8) {
       return false;
     }

@@ -51,7 +51,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
           <input type="password" class="form-control" name="password" value="">
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Confirm Password:</label>
+          <label for="confirmPassword" class="form-label">Confirm Password:</label>
           <input type="password" class="form-control" name="confirmPassword" value="">
         </div>
         <div class="mb-3">

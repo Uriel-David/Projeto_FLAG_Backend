@@ -2,11 +2,12 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/User.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/Kanban.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/Task.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/controllers/Controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/login.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/logout.php';
 
-class UsersController
+class UsersController extends Controller
 {
     private $userModel;
     private $kanbanModel;

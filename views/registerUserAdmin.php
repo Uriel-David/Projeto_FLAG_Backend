@@ -46,6 +46,10 @@
           <label for="password" class="form-label">Confirm Password:</label>
           <input type="password" class="form-control" name="confirmPassword" min="8" required>
         </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password:</label>
+          <input type="password" class="form-control" name="confirmPassword" min="8" required>
+        </div>
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
 
         <a href="/getUsers" class="btn btn-secundary mb-2 mr-auto">back</a>

@@ -56,8 +56,8 @@ class User
             'username'  => htmlspecialchars($this->username),
             'email'     => htmlspecialchars($this->email),
             'password'  => htmlspecialchars($this->password),
-            'user_id'   => htmlspecialchars($this->userId),
-            'is_admin'  => htmlspecialchars($this->isAdmin),
+            'user_id'   => $this->userId,
+            'is_admin'  => $this->isAdmin,
         ];
     }
 }
