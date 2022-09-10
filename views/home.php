@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $_ENV['APP_NAME'] ?> - Sign in</title>
+  <title><?= $_ENV['APP_NAME'] ?> - Home</title>
   <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/templates/bootstrapCSS.php'); ?>
 </head>
 

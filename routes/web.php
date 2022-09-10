@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/services/global.php';
 $routes = explode("/", $_SERVER["REQUEST_URI"]);
 $route  = $routes[1];
 $data   = isset($_POST) ? $_POST : null;
-$publicRoutes   = ['', 'about', 'register', 'login', 'logout', 'homeKanban'];
+$publicRoutes   = ['', 'about', 'register', 'contacts', 'login', 'logout', 'homeKanban'];
 $privateRoutes  = ['getUsers', 'userPanel', 'editUser', 'updateUser', 'deleteUser', 'getBoards', 'createBoard', 'createTask', 'updateBoard', 'updateTask', 'deleteTask', 'deleteBoard'];
 
 // Rotas Públicas
@@ -17,6 +17,10 @@ if ($route == '') {
 
 if ($route == 'about') {
     include($_SERVER['DOCUMENT_ROOT'] . '/views/about.php');
+}
+
+if ($route == 'contacts') {
+    include($_SERVER['DOCUMENT_ROOT'] . '/views/contacts.php');
 }
 
 if ($route == 'register') {
@@ -95,7 +99,7 @@ if (isset($_SESSION['stateLogin']) && $_SESSION['stateLogin'] == 'logged') {
     }
 }
 
-if (!in_array($route, $publicRoutes) == 1 && !in_array($route, $privateRoutes) == 1) {
+if (!in_array($route, $publicRoutes) == 1 && !in_array($route, $privateRoutes) == 1 && !isset($_GET)) {
     $controller = new Controller();
     $controller->error();
 }

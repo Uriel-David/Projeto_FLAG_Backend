@@ -45,3 +45,7 @@
     width: 100%;
     color: rgba(0, 0, 0, 0.6);
 }
+
+#list-contact {
+    list-style: none;
+}
