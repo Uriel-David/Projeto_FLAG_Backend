@@ -1,8 +1,7 @@
 # Projeto Backend FLAG
 Projeto de conclusão do módulo Backend (PHP / MySQL), construção de um site com possibilidade de login para diversos usuários, para a criação
 de quadros de Kanban com diversas funcionalidades. O projeto em si as telas iniciais, assim como tela de registro e login, após o cadastro do
-usuário podemos acessar a tela pessoal do usuário assim como realizar logout. Em paralelo existe um backoffice para a tela de admin, onde é possível
-controlar os usuários existentes na plataforma.
+usuário podemos acessar a tela pessoal do usuário, nesta tela é possível criar as os quadros e edita-los e também o mesmo vale para as tasks, assim como realizar logout. Em paralelo existe um backoffice para a tela de admin, onde é possível controlar os usuários existentes na plataforma.
 
 ## Pré-Requisitos
 Para rodar o projeto é necessário ter as seguintes ferramentas instaladas:
